@@ -16,13 +16,10 @@ class Play4DataPipeline(object):
     def process_item(self, item, spider):
         try:
             self.cursor.execute("insert into db_bubs(id,content,album,artist,cover,song_id,song_name,mark_time) values (%s,%s,%s,%s,%s,%s,%s,%s)",(item['id'],item['content'],item['album'],item['artist'],item['cover'],item['song_id'],item['song_name'],item['mark_time']))
-#            self.cursor.execute("inser into db_bubs(id) values(%s)",item['id'])
 
             self.conn.commit()
         except psycopg2.DatabaseError, e:
              print "Error %s" % e
              exit(1)
-
-#        print item['content']+"***************"
 
         return item

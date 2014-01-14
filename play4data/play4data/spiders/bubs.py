@@ -8,7 +8,8 @@ class BubsSpider(BaseSpider):
     name = "bubs"
     allowed_domains = ["douban.com"]
     start_urls = [
-    "http://api.douban.com/labs/bubbler/user/likevic/bubs"
+    '''please replace id with :id you want'''
+    "http://api.douban.com/labs/bubbler/user/:id/bubs"
     ]
 
     def parse(self, response):
