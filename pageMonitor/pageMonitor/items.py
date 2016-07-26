@@ -10,4 +10,4 @@ import scrapy
 class PagemonitorItem(scrapy.Item):
     title = scrapy.Field()
     price = scrapy.Field()
-    oriPrice = scrapy.Field()
+    oriprice = scrapy.Field()
