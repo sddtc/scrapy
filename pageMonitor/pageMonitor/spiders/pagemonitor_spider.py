@@ -12,8 +12,7 @@ class PagemonitorSpider(scrapy.spiders.Spider):
     def parse(self, response):
         for sel in response.xpath('/html'):
             item = PagemonitorItem()
-            item['title'] = sel.xpath('//h1[@class="product-item-headline"]/text()').extract()
+            item['title'] = sel.xpath('//h1[@class="product-item-headline"]/text()').extract()[0]
             item['price'] = sel.xpath('//section[contains(@class,"product-detail-meta")]//span[@class="price-value"]/text()').extract()
             item['oriprice'] = sel.xpath('//section[contains(@class,"product-detail-meta")]//small[@class="price-value-original"]/text()').extract()
             yield item
-
